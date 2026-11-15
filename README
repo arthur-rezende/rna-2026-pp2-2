@@ -1,4 +1,89 @@
+# Projeto Prático 2.2 — Redes Neurais Artificiais (2026.2)
+
+Proposição, treinamento e avaliação de Redes Neurais Artificiais do tipo *Feedforward Multilayer Perceptron* (`MLPClassifier`) para classificação multiclasse da base de dados **Dry Bean Dataset** (UCI Machine Learning Repository).
+
+---
+
+## 1. Instalação do Miniconda
+
+Caso ainda não possua o **Conda** instalado na máquina, instale o **Miniconda** (versão enxuta do Anaconda):
+
+### Windows
+1. Baixe o instalador oficial para Windows (64-bit):
+   - [Miniconda3 Windows 64-bit (.exe)](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe)
+   - Ou via terminal PowerShell (`winget`):
+     ```powershell
+     winget install Anaconda.Miniconda3
+     ```
+2. Execute o instalador seguindo os passos padrão (*Next* -> *I Agree* -> *Just Me*).
+3. Após concluir a instalação, abra o menu Iniciar do Windows e procure por **Anaconda Prompt (Miniconda3)**. Utilize esse terminal para executar os comandos abaixo.
+
+### Linux / macOS
+```bash
+# Linux (x86_64)
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+
+# Reinicie o terminal após a instalação
+source ~/.bashrc
+```
+
+---
+
+## 2. Clonando o Repositório
+
+No terminal (**Anaconda Prompt** no Windows ou terminal padrão no Linux/macOS), clone o repositório e acesse a pasta do projeto:
+
+```bash
 git clone https://github.com/arthur-rezende/trabalho-mlp.git
-conda env create -f environment.yml
-conda activate mlp-rna-2026
-jupyter lab
+cd trabalho-mlp
+```
+
+---
+
+## 3. Criando e Ativando o Ambiente Conda
+
+O arquivo de configuração do ambiente está localizado em `notebook/environment.yml` e instala automaticamente o **Python 3.11**, `numpy`, `pandas`, `matplotlib`, `scikit-learn`, `jupyterlab`, `ipykernel` e `ucimlrepo`.
+
+1. **Crie o ambiente virtual** a partir do arquivo `environment.yml`:
+   ```bash
+   conda env create -f notebook/environment.yml
+   ```
+   *(Obs.: Se você já estiver dentro da pasta `notebook/`, rode apenas `conda env create -f environment.yml`).*
+
+2. **Ative o ambiente criado (`mlp-rna-2026`)**:
+   ```bash
+   conda activate mlp-rna-2026
+   ```
+
+3. *(Opcional)* Caso precise atualizar o ambiente após alguma alteração no `environment.yml`:
+   ```bash
+   conda env update -f notebook/environment.yml --prune
+   ```
+
+---
+
+## 4. Inicializando o Jupyter Lab
+
+Com o ambiente `mlp-rna-2026` ativo no terminal:
+
+1. Inicie o servidor do **Jupyter Lab**:
+   ```bash
+   jupyter lab
+   ```
+2. O navegador abrirá automaticamente no endereço `http://localhost:8888/lab`.
+3. No painel lateral esquerdo do Jupyter Lab, abra a pasta `notebook/` e selecione o notebook desejado:
+   - `PP2.2.1.ipynb` — Parte 1: Exploração, visualização de dados e análise de balanceamento da base *Dry Bean*.
+   - `PP2.2.2.ipynb` — Parte 2: Treinamento de MLPs, comparação de otimizadores (Adam vs. SGD), proposição de novas arquiteturas e Regra da Pirâmide Geométrica.
+   - `PP2.2.3.ipynb` — Parte 3: Busca em grade com Validação Cruzada *k-fold*, seleção da melhor solução e empacotamento do modelo final.
+4. Certifique-se de que o kernel selecionado no canto superior direito do notebook é **Python 3 (ipykernel)** correspondente ao ambiente `mlp-rna-2026`.
+
+---
+
+## 5. Encerrando o Ambiente
+
+Para encerrar o Jupyter Lab, pressione `Ctrl + C` duas vezes no terminal onde ele está rodando e depois desative o ambiente Conda com:
+
+```bash
+conda deactivate
+```
