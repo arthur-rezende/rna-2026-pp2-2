@@ -87,3 +87,6 @@ Para encerrar o Jupyter Lab, pressione `Ctrl + C` duas vezes no terminal onde el
 ```bash
 conda deactivate
 ```
+
+## 6. Equipe
+Composta por Arthur Marshal, Julio Cleiton e Thais Carolina
